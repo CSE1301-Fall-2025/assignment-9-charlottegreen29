@@ -18,7 +18,25 @@ public class BodySegment {
 		//I chose my own cuz I like the purple
 		this.color = ColorUtils.snakePurple();
 	}
+
+	//I'm adding getters and setters for x and y because we will be updating them in other classes
 	
+	public double getX() {
+		return x;
+	}
+
+	public void setX(double x) {
+		this.x = x;
+	}
+
+	public double getY() {
+		return y;
+	}
+
+	public void setY(double y) {
+		this.y = y;
+	}
+
 	/**
 	 * Draws the segment
 	 */

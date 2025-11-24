@@ -11,9 +11,13 @@ public class Snake {
 	private double deltaY;
 	
 	public Snake() {
-		segments = new LinkedList<BodySegment>();
 		deltaX = 0;
 		deltaY = 0;
+
+		//I created the segments list and added the initial segment to it.
+		segments = new LinkedList<>();
+		BodySegment firstSegment = new BodySegment(4.5,4.5,SEGMENT_SIZE);
+		segments.add(firstSegment);
 	}
 	
 	public void changeDirection(int direction) {
@@ -37,14 +41,20 @@ public class Snake {
 	 * based on the current direction of travel
 	 */
 	public void move() {
-		//FIXME
+		//this code changes the poisition of just the head of the snake
+		double newX = segments.getFirst().getX() + deltaX;
+		double newY = segments.getFirst().getY() + deltaY;
+		BodySegment newHead = new BodySegment(newX, newY, SEGMENT_SIZE);
+		segments.add(0, newHead);
 	}
 	
 	/**
 	 * Draws the snake by drawing each segment
 	 */
 	public void draw() {
-		//FIXME
+		for (BodySegment segment : segments){
+			segment.draw();
+		}
 	}
 	
 	/**
@@ -61,8 +71,12 @@ public class Snake {
 	 * Returns true if the head of the snake is in bounds
 	 * @return whether or not the head is in the bounds of the window
 	 */
-	public boolean isInbounds() {
-		//FIXME
-		return true;
+	public boolean isInBounds() {
+		if (segments.getFirst().getX()>0.0 && segments.getFirst().getX()<1.0){ //checks x bounds
+			if (segments.getFirst().getY()>0.0 && segments.getFirst().getY()<1.0){ //checks y bounds
+				return true;
+			}
+		}
+		return false;
 	}
 }
