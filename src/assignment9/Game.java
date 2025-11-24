@@ -27,7 +27,9 @@ public class Game {
 
 			this.snake.move();
 
-			//not sure what to do about the food situation right now cuz the food class isn't done yet
+			if (this.snake.eatFood(this.food)){
+				food = new Food();
+			}
 
 			this.updateDrawing();
 			

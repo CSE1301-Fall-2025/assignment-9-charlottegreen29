@@ -19,6 +19,16 @@ public class Food {
 		this.x=((int)(Math.random()*10)/10)+0.05;
 		this.y=((int)(Math.random()*10)/10)+0.05;
 	}
+
+	//I added getters so the snake can know if it's touching the food
+
+	public double getX() {
+		return x;
+	}
+
+	public double getY() {
+		return y;
+	}
 	
 	/**
 	 * Draws the Food

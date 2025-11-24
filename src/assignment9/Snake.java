@@ -41,11 +41,12 @@ public class Snake {
 	 * based on the current direction of travel
 	 */
 	public void move() {
-		//this code changes the poisition of just the head of the snake
-		double newX = segments.getFirst().getX() + deltaX;
-		double newY = segments.getFirst().getY() + deltaY;
+		//adds a new segments that's where the head is and the removes the first one
+		double newX = segments.getLast().getX() + deltaX;
+		double newY = segments.getLast().getY() + deltaY;
 		BodySegment newHead = new BodySegment(newX, newY, SEGMENT_SIZE);
-		segments.add(0, newHead);
+		segments.add(newHead);
+		segments.remove(0);
 	}
 	
 	/**
@@ -63,7 +64,14 @@ public class Snake {
 	 * @return true if the snake successfully ate the food
 	 */
 	public boolean eatFood(Food f) {
-		//FIXME
+		if (segments.getLast().distanceCenterToPoint(f.getX(),f.getY())<SEGMENT_SIZE){
+			//I'm making it so that the added segment is right behind the last segment
+			BodySegment newSegment = segments.getFirst();
+			newSegment.setX(newSegment.getX()-this.deltaX);
+			newSegment.setY(newSegment.getY()-this.deltaY);
+			segments.add(newSegment);
+			return true;
+		}
 		return false;
 	}
 	

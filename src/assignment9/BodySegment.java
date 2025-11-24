@@ -44,5 +44,12 @@ public class BodySegment {
 		StdDraw.setPenColor(color);
 		StdDraw.filledCircle(x,y,size);
 	}
+
+	//I'm adding a method that finds the distance from the segment to a point
+	// this is copypasted from the zombies assignment (assignment 8)
+	public double distanceCenterToPoint(double xOther, double yOther) {
+		double distance = Math.sqrt(Math.pow((xOther - this.x),2) + Math.pow((yOther - this.y),2));
+		return distance;
+	}
 	
 }
