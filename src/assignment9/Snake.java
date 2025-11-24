@@ -11,7 +11,7 @@ public class Snake {
 	private double deltaY;
 	
 	public Snake() {
-		//FIXME - set up the segments instance variable
+		segments = new LinkedList<BodySegment>();
 		deltaX = 0;
 		deltaY = 0;
 	}

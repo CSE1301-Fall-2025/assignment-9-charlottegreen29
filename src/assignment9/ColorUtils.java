@@ -9,6 +9,11 @@ public class ColorUtils {
 		Random r = new Random();
 		return new Color(r.nextInt(256), r.nextInt(256), r.nextInt(256));
 	}
+
+	//this is the exact shade of purple of the snake in the google snake game
+	public static Color snakePurple(){
+		return new Color(120,81,169);
+	}
 	
 	private static Color transparent(Color c) {
 		int r = c.getRed();

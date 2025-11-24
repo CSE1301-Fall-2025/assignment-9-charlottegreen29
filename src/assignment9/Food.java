@@ -12,15 +12,20 @@ public class Food {
 	/**
 	 * Creates a new Food at a random location
 	 */
+
+	//the "random" location is either 0.5, 1.5, ... 9.5
+	//this is also helpful because it means that no two apples will be overlapping
 	public Food() {
-		//FIXME
+		this.x=((int)(Math.random()*10)/10)+0.05;
+		this.y=((int)(Math.random()*10)/10)+0.05;
 	}
 	
 	/**
 	 * Draws the Food
 	 */
 	public void draw() {
-		//FIXME
+		StdDraw.setPenColor(Color.RED); //it has to be red cuz it's an apple
+		StdDraw.filledCircle(x,y,FOOD_SIZE);
 	}
 	
 }
