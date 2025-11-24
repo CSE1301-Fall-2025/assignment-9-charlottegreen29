@@ -4,10 +4,13 @@ import java.awt.event.KeyEvent;
 
 import edu.princeton.cs.introcs.StdDraw;
 
+import java.awt.Color; //I found that this is the color library to make new colors
+
 public class Game {
 
 	private Food food;
 	private Snake snake;
+	private Color backgroundGreen = new Color(110, 219, 122);
 	
 	public Game() {
 		this.food = new Food();
@@ -67,9 +70,11 @@ public class Game {
 		 * 4. Show
 		 */
 
-		StdDraw.clear();
+		StdDraw.clear(backgroundGreen);
 		snake.draw();
 		food.draw();
+		StdDraw.setPenColor(StdDraw.BLACK);
+		StdDraw.text(0.5,0.9,"Snake length: " + snake.numSegments());
 		StdDraw.pause(50);
 		StdDraw.show();
 		

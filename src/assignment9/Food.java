@@ -16,8 +16,8 @@ public class Food {
 	//the "random" location is either 0.5, 1.5, ... 9.5
 	//this is also helpful because it means that no two apples will be overlapping
 	public Food() {
-		this.x=((int)(Math.random()*10)/10)+0.05;
-		this.y=((int)(Math.random()*10)/10)+0.05;
+		this.x=(Math.random()*0.9+0.05);
+		this.y=(Math.random()*0.9+0.05);
 	}
 
 	//I added getters so the snake can know if it's touching the food
@@ -34,7 +34,8 @@ public class Food {
 	 * Draws the Food
 	 */
 	public void draw() {
-		StdDraw.setPenColor(Color.RED); //it has to be red cuz it's an apple
+		Color appleColor = new Color(171, 24, 24);
+		StdDraw.setPenColor(appleColor); //it has to be red cuz it's an apple
 		StdDraw.filledCircle(x,y,FOOD_SIZE);
 	}
 	

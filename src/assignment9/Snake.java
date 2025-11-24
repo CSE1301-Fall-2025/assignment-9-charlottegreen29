@@ -5,7 +5,7 @@ import java.util.LinkedList;
 public class Snake {
 
 	private static final double SEGMENT_SIZE = 0.02;
-	private static final double MOVEMENT_SIZE = SEGMENT_SIZE * 1.5;
+	private static final double MOVEMENT_SIZE = SEGMENT_SIZE * 0.6;
 	private LinkedList<BodySegment> segments;
 	private double deltaX;
 	private double deltaY;
@@ -16,7 +16,7 @@ public class Snake {
 
 		//I created the segments list and added the initial segment to it.
 		segments = new LinkedList<>();
-		BodySegment firstSegment = new BodySegment(4.5,4.5,SEGMENT_SIZE);
+		BodySegment firstSegment = new BodySegment(0.45,0.45,SEGMENT_SIZE);
 		segments.add(firstSegment);
 	}
 	
@@ -80,11 +80,15 @@ public class Snake {
 	 * @return whether or not the head is in the bounds of the window
 	 */
 	public boolean isInBounds() {
-		if (segments.getFirst().getX()>0.0 && segments.getFirst().getX()<1.0){ //checks x bounds
-			if (segments.getFirst().getY()>0.0 && segments.getFirst().getY()<1.0){ //checks y bounds
+		if (segments.getLast().getX()>0.0 && segments.getLast().getX()<1.0){ //checks x bounds
+			if (segments.getLast().getY()>0.0 && segments.getLast().getY()<1.0){ //checks y bounds
 				return true;
 			}
 		}
 		return false;
+	}
+
+	public int numSegments(){
+		return segments.size();
 	}
 }
